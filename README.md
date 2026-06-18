@@ -1,3 +1,27 @@
+# UVM-Based Verification of I2C Master Controller
+
+A complete UVM verification environment for an I2C Master Controller RTL design, developed and simulated using Synopsys VCS (X-2025.06-SP2-1).
+
+---
+
+## Architecture
+
+```text
+tb_top
+├── i2c_if          (Interface)
+└── i2c_env
+    ├── i2c_master_agent (M1)
+    │   ├── uvm_sequencer
+    │   ├── i2c_master_driver
+    │   └── i2c_master_monitor
+    ├── i2c_master_agent (M2)
+    │   ├── uvm_sequencer
+    │   ├── i2c_master_driver
+    │   └── i2c_master_monitor
+    ├── i2c_scoreboard
+    └── i2c_coverage
+```
+
 ---
 
 ## DUT: I2C Master Controller
