@@ -1,27 +1,3 @@
-# UVM-Based Verification of I2C Master Controller
-
-A complete UVM verification environment for an I2C Master Controller RTL design, developed and simulated using Synopsys VCS.
-
----
-
-## Architecture
-
-```
-tb_top
-├── i2c_if          (Interface)
-└── i2c_env
-    ├── i2c_master_agent (M1)
-    │   ├── uvm_sequencer
-    │   ├── i2c_master_driver
-    │   └── i2c_master_monitor
-    ├── i2c_master_agent (M2)
-    │   ├── uvm_sequencer
-    │   ├── i2c_master_driver
-    │   └── i2c_master_monitor
-    ├── i2c_scoreboard
-    └── i2c_coverage
-```
-
 ---
 
 ## DUT: I2C Master Controller
@@ -81,9 +57,36 @@ tb_top
 
 | Metric | Result |
 |--------|--------|
-| Functional Coverage | **98%** |
-| Code Coverage | **93%** |
-| Tool | Synopsys VCS |
+| Overall Score | **85.24%** |
+| Line Coverage | **92.83%** |
+| Condition Coverage | **89.22%** |
+| Toggle Coverage | **80.98%** |
+| FSM Coverage | **74.11%** |
+| Branch Coverage | **77.14%** |
+| Functional Coverage (Groups) | **97.14%** |
+| Tool | Synopsys VCS X-2025.06-SP2-1 |
+
+### Coverage Dashboard
+![Coverage Dashboard](docs/coverage_dashboard.png)
+
+### Functional Coverage — i2c_cg
+![Functional Coverage](docs/functional_coverage.png)
+
+### Cross Coverage Detail
+![Cross Coverage](docs/cross_coverage.png)
+
+### Code Coverage — Module Definition
+![Code Coverage](docs/code_coverage.png)
+
+---
+
+## UVM Report Summary
+
+- `UVM_INFO : 1440` | `UVM_WARNING : 0` | `UVM_ERROR : 0` | `UVM_FATAL : 0`
+- Simulation end time: **241135000 ps**
+- All sequences executed: WRITE, READ, REP_START, NACK, STRETCH, ARB, SPEED, RANDOM, OVERWRITE
+
+![UVM Report](docs/uvm_report.png)
 
 ---
 
@@ -101,7 +104,7 @@ Requires Synopsys VCS with UVM-1.2 library.
 
 ## Tools & Environment
 
-- **Simulator:** Synopsys VCS
+- **Simulator:** Synopsys VCS X-2025.06-SP2-1
 - **Methodology:** UVM 1.2
 - **Language:** SystemVerilog (IEEE 1800-2012)
 - **OS:** Linux
